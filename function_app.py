@@ -39,5 +39,7 @@ def load_sql_data(myblob: func.InputStream, sqldata: func.SqlRowList):
             
     except ValueError as e:
         logging.error(f"Error parsing blob content as JSON: {str(e)}")
+        raise  # Rethrow the exception after logging
     except Exception as e:
         logging.error(f"Error processing blob: {str(e)}")
+        raise  # Rethrow the exception after logging
